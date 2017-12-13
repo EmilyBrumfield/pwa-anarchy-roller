@@ -28,8 +28,8 @@ function handleRollClick(numDice) {
         var currentRoll = 0;
         var glitchRoll = 0;
         var tempResultsStorage = [0, 0, 0, 0, 0, 0, 0, 0, 0, ""]; //stores results for 1, 2, 3, 4, 5, and 6, respectively, ignoring index 0
-        //temporarily, index 7 stores successes and index 8 stores successes with edge expended before the roll
-        //temporarily, index 9 stores the results of the glitch die
+        //index 7 stores successes and index 8 stores successes with edge expended before the roll
+        //index 9 stores the results of the glitch die
     
         if (numDice < 1 || numDice > 50) {numDice = 1} //prevents bad inputs; number of dice must be between 1 and 50, otherwise becomes 1
         
