@@ -19,7 +19,7 @@ function handleRollClick(numDice) {
     diceTally = rollDice(numDice);
     outputReplace("success", "Successes: " + diceTally[7]);
     outputReplace("successEdge", "Successes with Edge: " + diceTally[8]);
-    outputReplace("glitch", "Glitch Die Result: " + diceTally[9]);\
+    outputReplace("glitch", "Glitch Die Result: " + diceTally[9]);
 }
 
     function rollDice(numDice) {
