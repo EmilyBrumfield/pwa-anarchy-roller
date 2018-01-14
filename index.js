@@ -14,39 +14,39 @@ separate setting for whether or not the player wants to roll it with any given r
 */
 
 var diceTally = 0; //will eventually use closures for this
-       
+
 function handleRollClick(numDice) {
     diceTally = rollDice(numDice);
-    outputReplace("success", "Successes: " + diceTally[7])
-    outputReplace("successEdge", "Successes with Edge: " + diceTally[8])
-    outputReplace("glitch", "Glitch Die Result: " + diceTally[9])
-
+    outputReplace("success", "Successes: " + diceTally[7]);
+    outputReplace("successEdge", "Successes with Edge: " + diceTally[8]);
+    outputReplace("glitch", "Glitch Die Result: " + diceTally[9]);\
 }
-      
+
     function rollDice(numDice) {
-        
+
         var currentRoll = 0;
         var glitchRoll = 0;
         var tempResultsStorage = [0, 0, 0, 0, 0, 0, 0, 0, 0, ""]; //stores results for 1, 2, 3, 4, 5, and 6, respectively, ignoring index 0
         //index 7 stores successes and index 8 stores successes with edge expended before the roll
         //index 9 stores the results of the glitch die
-    
-        if (numDice < 1 || numDice > 50) {numDice = 1} //prevents bad inputs; number of dice must be between 1 and 50, otherwise becomes 1
-        
+
+        if (numDice < 1 || numDice > 50) {
+          numDice = 1;
+        } //prevents bad inputs; number of dice must be between 1 and 50, otherwise becomes 1
+
         glitchRoll = Math.floor(Math.random() * 6) + 1;
         switch (glitchRoll){
           case 1:
             tempResultsStorage[9] = glitchRoll.toString() + " (Glitch)";
             break;
-          
+
           case 5:
           case 6:
           tempResultsStorage[9] = glitchRoll.toString() + " (Exploit)";
             break;
-    
+
           default:
             tempResultsStorage[9] = glitchRoll.toString() + " (---)";
-            break;
         }
     
     
@@ -55,26 +55,24 @@ function handleRollClick(numDice) {
             currentRoll = Math.floor(Math.random() * 6) + 1;
             tempResultsStorage[currentRoll] += 1;
           }
-    
+
         tempResultsStorage[7] = tempResultsStorage[5] + tempResultsStorage[6];
         tempResultsStorage[8] = tempResultsStorage[4] + tempResultsStorage[5] + tempResultsStorage[6];
-    
-        return tempResultsStorage; 
-    
-     };
 
+        return tempResultsStorage;     
+     };
 
 //OUTPUT FUNCTIONS
 //Outputs data stored in "content" to HTML element with id matching "target."
 
 function outputReplace (target, content) {  //Replaces existing target content with new content
-  document.getElementById(target).innerHTML = content;  
+  document.getElementById(target).innerHTML = content;
 }
 
 function outputAdd (target, content) {  //Adds new content to existing target content
-  document.getElementById(target).innerHTML += content;  
+  document.getElementById(target).innerHTML += content;
 }
 
 function outputAddLine (target, content) {  //Adds new content to existing target content, in a new line
-  document.getElementById(target).innerHTML += "<br\>" + content;  
+  document.getElementById(target).innerHTML += "<br \>" + content;
 }
