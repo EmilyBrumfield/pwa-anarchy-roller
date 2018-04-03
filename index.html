@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="manifest" href="manifest.json">    
     <script type="text/javascript" src="index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta charset="utf-8">
+    <meta name="theme-color" content="#C0D890">
     <title>Anarchy Roller</title>
   </head>
   <body>
@@ -12,11 +14,9 @@
       You need to enable JavaScript to run this app.
     </noscript>
     
-    <p class="App-explanation">
-      Dice roller for Shadowrun Anarchy.
-      <br /><b>Instructions:</b> Click the button with the number of dice to roll. 
-      </p>
-
+    <button class="App-explanation-button" onClick="handleInstructionClick()">Instructions</button>
+    <p class="App-explanation" id="instructions"></p>
+    
       <h1 id="success">Successes:</h1>
       <h1 id="successEdge">Successes with Edge:</h1>
       <h1 id="glitch">Glitch Die Result:</h1>
